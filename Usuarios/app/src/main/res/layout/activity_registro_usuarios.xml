@@ -57,7 +57,8 @@
                     android:hint="@string/apellido_registro"
                     android:ems="10"
                     android:id="@+id/txtApellido"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:paddingTop="60dp"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -100,6 +101,14 @@
                     android:ems="10"
                     android:id="@+id/txtCorreo"
                     android:layout_weight="1" />
+
+                <Button
+                    android:text="@string/registro_usuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnRegistroUsuario"
+                    android:layout_weight="1"
+                    android:onClick="registroUsuario"/>
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
     </ScrollView>

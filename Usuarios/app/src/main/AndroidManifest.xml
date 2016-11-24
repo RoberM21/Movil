@@ -25,7 +25,8 @@
         <activity
             android:name=".RegistroUsuariosActivity"
             android:label="@string/title_activity_registro_usuarios"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MuestraUsuarioActivity"></activity>
     </application>
 
 </manifest>

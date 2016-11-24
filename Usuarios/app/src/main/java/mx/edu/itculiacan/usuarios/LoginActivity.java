@@ -29,6 +29,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -185,9 +186,21 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+            // showProgress(true);
+            // mAuthTask = new UserLoginTask(email, password);
+            // mAuthTask.execute((Void) null);
+            BaseDatosSQL bd = new BaseDatosSQL(this);
+            Cursor cursor = bd.validaUsuario(email,password);
+            if (cursor.moveToFirst()){
+                Toast.makeText(this,"Bienvenido "+cursor.getString(3), Toast.LENGTH_SHORT).show();
+                //Enviar datos de una actividad a otra
+                String[] datos = {cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4)};
+                Bundle paquete = new Bundle();
+                paquete.putStringArray("datos",datos);
+                Intent intento = new Intent(this,MuestraUsuarioActivity.class);
+                intento.putExtras(paquete);
+                startActivity(intento);
+            }
         }
     }
 

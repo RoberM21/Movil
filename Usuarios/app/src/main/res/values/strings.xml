@@ -18,5 +18,5 @@
     <string name="clave_registro">Contraseña</string>
     <string name="nombre_registro">Nombre(s)</string>
     <string name="apellido_registro">Apellido</string>
-    <string name="registro_usuario">registro_usuario</string>
+    <string name="registro_usuario">Registro Usuario</string>
 </resources>

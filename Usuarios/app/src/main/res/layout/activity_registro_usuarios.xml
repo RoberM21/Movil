@@ -44,22 +44,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:text=""
-                    android:hint="@string/apellido_registro"
-                    android:ems="10"
-                    android:id="@+id/txtApellido"
-                    android:layout_weight="1"
-                    android:paddingTop="60dp"/>
-            </android.support.design.widget.TextInputLayout>
+            android:orientation="vertical"
+            android:paddingTop="60dp">
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -83,9 +69,9 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:text=""
-                    android:hint="@string/clave_registro"
+                    android:hint="@string/apellido_registro"
                     android:ems="10"
-                    android:id="@+id/txtClave"
+                    android:id="@+id/txtApellido"
                     android:layout_weight="1" />
             </android.support.design.widget.TextInputLayout>
 
@@ -97,10 +83,15 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:text=""
-                    android:hint="@string/correo_registro"
+                    android:hint="@string/clave_registro"
                     android:ems="10"
-                    android:id="@+id/txtCorreo"
+                    android:id="@+id/txtClave"
                     android:layout_weight="1" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
                 <Button
                     android:text="@string/registro_usuario"
@@ -108,8 +99,20 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/btnRegistroUsuario"
                     android:layout_weight="1"
+                    tools:text="Registro Usuario"
                     android:onClick="registroUsuario"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text=""
+                    android:hint="@string/correo_registro"
+                    android:ems="10"
+                    android:id="@+id/txtCorreo"
+                    android:layout_weight="1" />
             </android.support.design.widget.TextInputLayout>
+
         </LinearLayout>
     </ScrollView>
 

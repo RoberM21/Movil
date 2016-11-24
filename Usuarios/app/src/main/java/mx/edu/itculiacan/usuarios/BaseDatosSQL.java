@@ -1,44 +1,81 @@
 package mx.edu.itculiacan.usuarios;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * Created by ccdm09 on 22/11/16.
+ * Created by computadoradelmaestro on 22/11/16.
  */
 
 public class BaseDatosSQL extends SQLiteOpenHelper{
 
-    //Atributos / constantes
-    public static final String DATABASE_NAME = "registrousuario.db";
-    public static final String TABLE_NAME = "usuarios";
-    public static final String COLUMN0 = "id";
-    public static final String COLUMN1 = "email";
-    public static final String COLUMN2 = "clave";
-    public static final String COLUMN3 = "nombre";
-    public static final String COLUMN4 = "apellido";
+    //Atributos / Constantes
+    public static final String DATABASE_NAME = "registrousuarios.db";
+    public static final String TABLE_NAME    = "usuarios";
+    public static final String COLUMN0       = "id";
+    public static final String COLUMN1       = "email";
+    public static final String COLUMN2       = "clave";
+    public static final String COLUMN3       = "nombre";
+    public static final String COLUMN4       = "apellido";
 
-
-
-    //constructor
+    //Constructor
     public BaseDatosSQL(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context,DATABASE_NAME, null, 1);
+    }
+
+    //Validación de usuarios
+    public Cursor validaUsuario(String email,String clave){
+        //Abrimos la BD
+        SQLiteDatabase bd = this.getWritableDatabase();
+        String[] parametros = {email,clave};
+        String consulta = "SELECT * FROM "+TABLE_NAME+" WHERE "+COLUMN1+" = ? AND "+COLUMN2+" = ?";
+        //EJECUTO LA CONSULTA
+        Cursor cursor = bd.rawQuery(consulta,parametros);
+        return cursor;
+    }
+
+
+    public boolean inserta_datos(String email,String clave,String nombre,String apellido){
+        boolean respuesta = true;
+        //Abrir la Base de datos
+        SQLiteDatabase bd = this.getWritableDatabase(); //Abre o crea si no existe
+        ContentValues contenido = new ContentValues();
+        contenido.put(COLUMN1,email);
+        contenido.put(COLUMN2,clave);
+        contenido.put(COLUMN3,nombre);
+        contenido.put(COLUMN4,apellido);
+        //Si algo salío mal
+        if (bd.insert(TABLE_NAME,null,contenido) == -1)
+        {
+            respuesta = false;
+        }
+        return respuesta;
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE "+ TABLE_NAME +
-                                    "(id INTEGER PRIMARY KEY AUTOINCREMENT,"+
-                                    "email TEXT,"+
-                                    "clave TEXT,"+
-                                    "nombre TEXT,"+
-                                    "apellido TEXT)");
+        sqLiteDatabase.execSQL("CREATE TABLE "+TABLE_NAME +
+                              "(id INTEGER PRIMARY KEY AUTOINCREMENT,"+
+                              "email TEXT,"+
+                              "clave TEXT,"+
+                              "nombre TEXT,"+
+                              "apellido TEXT)");
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXIST "+DATABASE_NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+DATABASE_NAME);
         onCreate(sqLiteDatabase);
     }
 }
+
+
+
+
+
+
+
+
+

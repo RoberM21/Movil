@@ -19,4 +19,6 @@
     <string name="nombre_registro">Nombre(s)</string>
     <string name="apellido_registro">Apellido</string>
     <string name="registro_usuario">Registro Usuario</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
 </resources>

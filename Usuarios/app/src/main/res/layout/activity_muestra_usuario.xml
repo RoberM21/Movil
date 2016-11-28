@@ -13,7 +13,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">
 
         <TableLayout
@@ -25,7 +25,7 @@
                 android:layout_height="match_parent" >
 
                 <TextView
-                    android:text="TextView"
+                    android:text="NOMBRE"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView" />
@@ -36,7 +36,8 @@
                     android:inputType="textPersonName"
                     android:text="Name"
                     android:ems="10"
-                    android:id="@+id/editText" />
+                    android:id="@+id/txtNombreMuestra" />
+
             </TableRow>
 
             <TableRow
@@ -44,7 +45,7 @@
                 android:layout_height="match_parent" >
 
                 <TextView
-                    android:text="TextView"
+                    android:text="APELLIDO"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView2" />
@@ -55,8 +56,7 @@
                     android:inputType="textPersonName"
                     android:text="Name"
                     android:ems="10"
-                    android:id="@+id/editText2" />
-
+                    android:id="@+id/txtApellidoMuestra" />
             </TableRow>
 
             <TableRow
@@ -64,7 +64,7 @@
                 android:layout_height="match_parent" >
 
                 <TextView
-                    android:text="TextView"
+                    android:text="CLAVE"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView3" />
@@ -75,7 +75,7 @@
                     android:inputType="textPersonName"
                     android:text="Name"
                     android:ems="10"
-                    android:id="@+id/editText3" />
+                    android:id="@+id/txtClaveMuestra" />
             </TableRow>
 
             <TableRow
@@ -83,7 +83,7 @@
                 android:layout_height="match_parent" >
 
                 <TextView
-                    android:text="TextView"
+                    android:text="CORREO"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView4" />
@@ -94,8 +94,33 @@
                     android:inputType="textPersonName"
                     android:text="Name"
                     android:ems="10"
-                    android:id="@+id/editText4" />
+                    android:id="@+id/txtCorreoMuestra" />
+            </TableRow>
 
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <Button
+                    android:text="@string/editar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnEditarUsuario"
+                    android:layout_span="2"
+                    android:onClick="editarUsuario"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <Button
+                    android:text="@string/eliminar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnEliminarUsuario"
+                    android:layout_span="2"
+                    android:onClick="eliminarUsuario"/>
             </TableRow>
         </TableLayout>
     </ScrollView>

@@ -55,6 +55,31 @@ public class BaseDatosSQL extends SQLiteOpenHelper{
         return respuesta;
     }
 
+    public int eliminaUsuario(String email) {
+        //conectar a la bd
+        SQLiteDatabase bd = this.getWritableDatabase();
+        String datos[] = {email};
+        return bd.delete(TABLE_NAME, COLUMN1 + " =?", datos);
+    }
+
+    public boolean editar_usuario(String email,String clave,String nombre,String apellido)
+    {
+        boolean respuesta = false;
+        SQLiteDatabase bd = this.getWritableDatabase(); //Conectamos a la BD
+        ContentValues contenido = new ContentValues();
+        contenido.put("email",email);
+        contenido.put("clave",clave);
+        contenido.put("nombre",nombre);
+        contenido.put("apellido",apellido);
+        String datos[] = {email};
+        //Update: Cantidad de registros actualizados
+        //Si no se actualiza ninguno, devuelve 0(cero).
+        if (bd.update(TABLE_NAME, contenido,"email = ?",datos) > 0){
+            respuesta = true;
+        }
+        return respuesta;
+    }
+
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE "+TABLE_NAME +

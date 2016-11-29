@@ -69,4 +69,9 @@ public class MuestraUsuarioActivity extends AppCompatActivity {
             Toast.makeText(this,"No se pudieron actualizar los datos", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void ListadoUsuarios(View view) {
+        Intent intento = new Intent(this,ListadoUsuarioActivity.class);
+        startActivity(intento);
+    }
 }

@@ -21,4 +21,5 @@
     <string name="registro_usuario">Registro Usuario</string>
     <string name="editar">Editar</string>
     <string name="eliminar">Eliminar</string>
+    <string name="listado_usuarios">Listado</string>
 </resources>

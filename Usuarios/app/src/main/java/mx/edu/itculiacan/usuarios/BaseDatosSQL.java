@@ -37,6 +37,13 @@ public class BaseDatosSQL extends SQLiteOpenHelper{
         return cursor;
     }
 
+    public Cursor listado_usuarios()
+    {
+        SQLiteDatabase bd = this.getWritableDatabase();
+        String consulta = "SELECT * FROM "+TABLE_NAME+" ORDER BY nombre,apellido";
+        Cursor cursor = bd.rawQuery(consulta,null);
+        return cursor;
+    }
 
     public boolean inserta_datos(String email,String clave,String nombre,String apellido){
         boolean respuesta = true;

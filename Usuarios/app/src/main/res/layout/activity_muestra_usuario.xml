@@ -122,6 +122,19 @@
                     android:layout_span="2"
                     android:onClick="eliminarUsuario"/>
             </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <Button
+                    android:text="@string/listado_usuarios"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnListadoUsuarios"
+                    android:layout_span="2"
+                    android:onClick="ListadoUsuarios"/>
+            </TableRow>
         </TableLayout>
     </ScrollView>
 </RelativeLayout>
